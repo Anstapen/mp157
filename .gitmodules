@@ -1,0 +1,3 @@
+[submodule "third_party/uboot"]
+	path = third_party/uboot
+	url = https://github.com/STMicroelectronics/u-boot.git
