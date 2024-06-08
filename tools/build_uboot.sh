@@ -12,10 +12,8 @@ if ! test -d config; then
     echo "Could not find config directory..."
 fi
 
-DEFCONFIG_FILE=custom_defconfig
+DEFCONFIG_FILE=stm32mp15_basic_defconfig
 
-# just a hotfix for now, find a better solution...
-cp config/$DEFCONFIG_FILE third_party/uboot/configs
 
 rm -rf build
 mkdir build
@@ -35,6 +33,3 @@ make mrproper
 make O=$BUILD_DIR DEVICE_TREE=$DT CROSS_COMPILE=arm-none-eabi- $DEFCONFIG_FILE
 make -j8 O=$BUILD_DIR DEVICE_TREE=$DT CROSS_COMPILE=arm-none-eabi- all
 
-
-echo Cleaning up...
-rm configs/$DEFCONFIG_FILE
